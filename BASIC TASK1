@@ -1,0 +1,289 @@
+Awesome Product Landing Page
+HTML CODE:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Awesome Product</h1>
+        <p>Best solution for your needs</p>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#buy-now">Buy Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="slider">
+                <div class="slide active">
+                    <img src="product-image1.jpg" alt="Product Image 1">
+                </div>
+                <div class="slide">
+                    <img src="product-image2.jpg" alt="Product Image 2">
+                </div>
+                <div class="slide">
+                    <img src="product-image3.jpg" alt="Product Image 3">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2>Revolutionary Design</h2>
+                <p>Our product is designed to bring you the best experience.</p>
+                <a href="#buy-now" class="btn">Buy Now</a>
+                <a href="#" class="btn btn-details">More Details</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="feature">
+                <img src="feature1.jpg" alt="Feature 1">
+                <h3>Feature 1</h3>
+                <p>Explanation of feature 1.</p>
+            </div>
+            <div class="feature">
+                <img src="feature2.jpg" alt="Feature 2">
+                <h3>Feature 2</h3>
+                <p>Explanation of feature 2.</p>
+            </div>
+            <div class="feature">
+                <img src="feature3.jpg" alt="Feature 3">
+                <h3>Feature 3</h3>
+                <p>Explanation of feature 3.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Awesome Product. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal Popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Product Details</h2>
+            <p>Here are more details about the product...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+CSS CODE:
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout */
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.header nav ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.header nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.slider {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.slide.active {
+    display: block;
+}
+
+.hero-text {
+    flex: 2;
+}
+
+.hero-text h2 {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #ff5733;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.feature {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 1rem;
+}
+
+.feature img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero, .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        margin: 1rem 0;
+    }
+
+    .hero img {
+        margin-bottom: 2rem;
+    }
+}
+
+
+JAVASCRIPT CODE:
+// Image Slider
+let slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 3000);
+
+// Modal Popup
+let modal = document.getElementById('modal');
+let detailsBtn = document.querySelector('.btn-details');
+let closeBtn = document.querySelector('.close-btn');
+
+detailsBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    modal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// Smooth Scroll
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
